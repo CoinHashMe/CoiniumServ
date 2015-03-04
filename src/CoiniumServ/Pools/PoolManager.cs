@@ -112,9 +112,9 @@ namespace CoiniumServ.Pools
             }
         }
 
-        public IPool Get(string symbol)
+        public IPool Get(string name)
         {
-            return _storage.FirstOrDefault(p => p.Config.Coin.Symbol.Equals(symbol, StringComparison.OrdinalIgnoreCase));
+            return _storage.FirstOrDefault(p => p.Config.Coin.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerator<IPool> GetEnumerator()
