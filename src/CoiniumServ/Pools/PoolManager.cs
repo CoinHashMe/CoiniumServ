@@ -103,7 +103,7 @@ namespace CoiniumServ.Pools
                 }
 
                 // cache the json-service response
-                var cache = _storage.ToDictionary(pool => pool.Config.Coin.Symbol.ToLower());
+                var cache = _storage.ToDictionary(pool => pool.Config.Coin.Name.ToLower());
                 ServiceResponse = JsonConvert.SerializeObject(cache, Formatting.Indented, new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
             }
             catch (Exception e)
@@ -112,9 +112,9 @@ namespace CoiniumServ.Pools
             }
         }
 
-        public IPool Get(string symbol)
+        public IPool Get(string name)
         {
-            return _storage.FirstOrDefault(p => p.Config.Coin.Symbol.Equals(symbol, StringComparison.OrdinalIgnoreCase));
+            return _storage.FirstOrDefault(p => p.Config.Coin.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerator<IPool> GetEnumerator()

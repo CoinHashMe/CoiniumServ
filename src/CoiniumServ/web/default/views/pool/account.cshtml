@@ -30,7 +30,7 @@
                             {
                                 <tr>
                                     <td class="hidden-xs">@paymentDetails.PaymentId</td>
-                                <td><a href="/pool/@Model.Coin.Symbol/block/@paymentDetails.Block">@paymentDetails.Block</a></td>
+                                <td><a href="/pool/@Model.Coin.Name/block/@paymentDetails.Block">@paymentDetails.Block</a></td>
                                     <td>
                                         @if (paymentDetails.Completed)
                                         {
@@ -45,7 +45,7 @@
                                     <td class="hidden-xs">
                                         @if (paymentDetails.Completed)
                                         {
-                                            <a href="/pool/@Model.Coin.Symbol/tx/@paymentDetails.TransactionId">@paymentDetails.TransactionId</a>
+                                            <a href="/pool/@Model.Coin.Name/tx/@paymentDetails.TransactionId">@paymentDetails.TransactionId</a>
                                         }
                                         else
                                         {
@@ -69,8 +69,8 @@
     <div class="col-md-12">
         @if (Model.PaginationQuery.Page - 1 >= 1)
         {
-            <a href="/pool/@Model.Coin.Symbol/account/address/@Model.Account.Address/@(Model.PaginationQuery.Page - 1)" type="button" class="btn btn-default btn-sm"><i class="fa fa-angle-double-left"></i> Prev</a>
+            <a href="/pool/@Model.Coin.Name/account/address/@Model.Account.Address/@(Model.PaginationQuery.Page - 1)" type="button" class="btn btn-default btn-sm"><i class="fa fa-angle-double-left"></i> Prev</a>
         }
-        <a href="/pool/@Model.Coin.Symbol/account/address/@Model.Account.Address/@(Model.PaginationQuery.Page + 1)" type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-angle-double-right"></i> Next</a>
+        <a href="/pool/@Model.Coin.Name/account/address/@Model.Account.Address/@(Model.PaginationQuery.Page + 1)" type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-angle-double-right"></i> Next</a>
     </div>
 </div>

@@ -64,7 +64,7 @@ namespace CoiniumServ.Daemon
             // loop through enabled pools and get their daemons.
             foreach (var pool in _poolManager)
             {
-                _storage.Add(pool.Config.Coin.Symbol, pool.Daemon);
+                _storage.Add(pool.Config.Coin.Name, pool.Daemon);
             }
         }
 
