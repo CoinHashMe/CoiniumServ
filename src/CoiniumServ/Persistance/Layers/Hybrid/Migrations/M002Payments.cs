@@ -66,7 +66,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid.Migrations
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Block").AsInt32().ForeignKey("Block", "Height")
                 .WithColumn("AccountId").AsInt32().ForeignKey("Account", "Id")
-                .WithColumn("Amount").AsDecimal().NotNullable()
+                .WithColumn("Amount").AsDecimal(22,8).NotNullable()
                 .WithColumn("Completed").AsBoolean().NotNullable()
                 .WithColumn("CreatedAt").AsDateTime().NotNullable();
 
@@ -75,7 +75,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid.Migrations
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("AccountId").AsInt32().ForeignKey("Account", "Id")
                 .WithColumn("PaymentId").AsInt32().ForeignKey("Payment", "Id")
-                .WithColumn("Amount").AsDecimal().NotNullable()
+                .WithColumn("Amount").AsDecimal(22,8).NotNullable()
                 .WithColumn("Currency").AsString(4).NotNullable()
                 .WithColumn("TxHash").AsString(64).NotNullable()
                 .WithColumn("CreatedAt").AsDateTime().NotNullable();
