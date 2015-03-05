@@ -38,7 +38,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid.Migrations
                 .WithColumn("confirmed").AsBoolean().NotNullable().WithDefaultValue(false)
                 .WithColumn("blockHash").AsString(65).NotNullable()
                 .WithColumn("txHash").AsString(65).NotNullable()
-                .WithColumn("amount").AsDecimal().NotNullable()
+                .WithColumn("amount").AsDecimal(16,8).NotNullable()
                 .WithColumn("time").AsDateTime().NotNullable();
         }
 
