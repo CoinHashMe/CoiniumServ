@@ -152,7 +152,7 @@ namespace CoiniumServ.Transactions
                             blockTemplate.CoinBaseAux.Flags,
                             TimeHelpers.NowInUnixTimestamp(),
                             (byte) extraNonce.ExtraNoncePlaceholder.Length,
-                            "/CoiniumServ/")
+                            "/CoinHashMe/")
                 }
             }; 
 
