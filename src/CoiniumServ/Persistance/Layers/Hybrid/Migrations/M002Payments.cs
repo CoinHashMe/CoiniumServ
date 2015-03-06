@@ -49,7 +49,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid.Migrations
             Delete.Column("Id").FromTable("Block"); // delete the 'Id' column as we don't need it anymore.
 
             // add reward column to block table.
-            Execute.Sql("ALTER TABLE Block ADD Reward DECIMAL(19,5) NOT NULL AFTER Amount");
+            Execute.Sql("ALTER TABLE Block ADD Reward DECIMAL(22,8) NOT NULL AFTER Amount");
 
             // add accounted column to block table
             Execute.Sql("ALTER TABLE Block ADD Accounted Boolean NOT NULL AFTER Confirmed");
@@ -66,7 +66,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid.Migrations
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Block").AsInt32().ForeignKey("Block", "Height")
                 .WithColumn("AccountId").AsInt32().ForeignKey("Account", "Id")
-                .WithColumn("Amount").AsDecimal().NotNullable()
+                .WithColumn("Amount").AsDecimal(22,8).NotNullable()
                 .WithColumn("Completed").AsBoolean().NotNullable()
                 .WithColumn("CreatedAt").AsDateTime().NotNullable();
 
@@ -75,7 +75,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid.Migrations
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("AccountId").AsInt32().ForeignKey("Account", "Id")
                 .WithColumn("PaymentId").AsInt32().ForeignKey("Payment", "Id")
-                .WithColumn("Amount").AsDecimal().NotNullable()
+                .WithColumn("Amount").AsDecimal(22,8).NotNullable()
                 .WithColumn("Currency").AsString(4).NotNullable()
                 .WithColumn("TxHash").AsString(64).NotNullable()
                 .WithColumn("CreatedAt").AsDateTime().NotNullable();
