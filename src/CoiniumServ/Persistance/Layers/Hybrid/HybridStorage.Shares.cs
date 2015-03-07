@@ -54,7 +54,7 @@ namespace CoiniumServ.Persistance.Layers.Hybrid
                 if (share.IsValid)
                 {
                     var hashrateKey = string.Format("{0}:hashrate", _coin);
-                    var entry = string.Format("{0}:{1}", share.Difficulty, share.Miner.Username);
+                    var entry = string.Format("{0}:{1}", share.MinerDifficulty, share.Miner.Username);
                     _redisProvider.Client.ZAdd(hashrateKey, Tuple.Create(TimeHelpers.NowInUnixTimestamp(), entry));
                 }
 
